@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Purti 💖</title>
+
+<style>
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(-45deg, #ff4e8a, #ff9ecf, #ff6fb5, #ff2e74);
+    background-size: 400% 400%;
+    animation: gradientBG 8s ease infinite;
+    overflow-x: hidden;
+}
+
+@keyframes gradientBG {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    100% {background-position: 0% 50%;}
+}
+
+.card {
+    backdrop-filter: blur(20px);
+    background: rgba(255,255,255,0.15);
+    padding: 30px;
+    border-radius: 20px;
+    text-align: center;
+    color: white;
+    width: 90%;
+    max-width: 420px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+}
+
+input {
+    padding: 10px;
+    border-radius: 20px;
+    border: none;
+    width: 80%;
+    margin-top: 15px;
+    text-align: center;
+}
+
+button {
+    padding: 10px 25px;
+    border-radius: 25px;
+    border: none;
+    margin-top: 15px;
+    cursor: pointer;
+}
+
+#unlockBtn, #yesBtn {
+    background: white;
+    color: #ff2e74;
+}
+
+#noBtn {
+    background: #ff2e74;
+    color: white;
+    position: absolute;
+}
+
+.hidden {
+    display: none;
+}
+
+.buttons {
+    margin-top: 25px;
+    position: relative;
+    height: 120px;
+}
+
+/* Love Letter Page */
+#letterPage {
+    display: none;
+    color: white;
+    max-width: 700px;
+    padding: 40px;
+    text-align: left;
+    line-height: 1.7;
+    animation: fadeIn 2s ease forwards;
+}
+
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+h1 {
+    text-align: center;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- PASSWORD SCREEN -->
+<div class="card" id="passwordScreen">
+    <h2>🔐 Only For Purti</h2>
+    <p>Enter the special date 💖</p>
+    <input type="password" id="passwordInput" placeholder="DD/MM/YYYY">
+    <br>
+    <button id="unlockBtn" onclick="checkPassword()">Unlock</button>
+    <p id="error" style="color:#ffe6e6;"></p>
+</div>
+
+<!-- PROPOSAL SCREEN -->
+<div class="card hidden" id="proposalScreen">
+    <h1>Purti 💖</h1>
+    <p>You are my favorite notification ✨</p>
+    <h2>Will You Be My Valentine? 💌</h2>
+
+    <div class="buttons">
+        <button id="yesBtn" onclick="showLetter()">Yes 💍</button>
+        <button id="noBtn" onmouseover="moveNo()">No 😜</button>
+    </div>
+</div>
+
+<!-- LOVE LETTER PAGE -->
+<div id="letterPage">
+    <h1>My Dear Purti 💖</h1>
+
+    <p>
+    From the moment you came into my life, everything started feeling different… 
+    brighter… warmer… happier. You are not just someone special — you are the reason 
+    my days feel lighter and my nights feel peaceful.
+    </p>
+
+    <p>
+    Your smile has this magical power that can fix even my worst moods. 
+    The way you talk, the way you laugh, the way you care — it all means 
+    more to me than I can ever explain.
+    </p>
+
+    <p>
+    I don’t know what the future holds, but I know one thing for sure — 
+    I want you in it. I want to celebrate your victories, support you in your struggles, 
+    and stand beside you no matter what.
+    </p>
+
+    <p>
+    Purti, you are not just my Valentine…  
+    you are someone I truly admire and cherish.  
+    Thank you for being you. 💕
+    </p>
+
+    <p style="text-align:center; font-size:20px;">
+    Always Yours ❤️
+    </p>
+</div>
+
+<script>
+function checkPassword() {
+    const correctPassword = "01/01/2009";
+    const entered = document.getElementById("passwordInput").value;
+
+    if (entered === correctPassword) {
+        document.getElementById("passwordScreen").classList.add("hidden");
+        document.getElementById("proposalScreen").classList.remove("hidden");
+    } else {
+        document.getElementById("error").innerText = "Wrong date 😜 Try again!";
+    }
+}
+
+function moveNo() {
+    const noBtn = document.getElementById("noBtn");
+    const x = Math.random() * 250;
+    const y = Math.random() * 80;
+    noBtn.style.left = x + "px";
+    noBtn.style.top = y + "px";
+}
+
+function showLetter() {
+    document.getElementById("proposalScreen").style.display = "none";
+    document.getElementById("letterPage").style.display = "block";
+}
+</script>
+
+</body>
+</html>
